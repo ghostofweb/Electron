@@ -1,33 +1,35 @@
 {
   "name": "electron",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
-  "main" : "dist-electron/main",
+  "description": "AI Therapist desktop app built with Electron + React + TypeScript",
+  "author": "Sahiljeet Singh Kalsi",
+  "main": "dist-electron/main.js",
   "scripts": {
+    "dev":"npm-run-all --parallel dev:react dev:electron",
     "dev:react": "vite",
-    "dev:electron":"electron .",
+    "dev:electron": "npm run transpile:electron && electron .",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-   "transpile:electron": "tsc --project src/electron/tsconfig.json" 
+    "transpile:electron": "tsc --project src/electron/tsconfig.json",
+    "dist:win": "npm run transpile:electron && npm run build && electron-builder --win --x64",
+    "dist:mac": "npm run transpile:electron && npm run build && electron-builder --mac --arm64",
+    "dist:linux": "npm run transpile:electron && npm run build && electron-builder --linux --x64"
   },
   "dependencies": {
-    "electron": "^38.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
+    "@types/fs-extra": "^11.0.4",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react": "^5.0.0",
-    "eslint": "^9.33.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
+    "@vitejs/plugin-react": "^5.0.2",
+    "cross-env": "^10.0.0",
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.12",
+    "npm-run-all": "^4.1.5",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"
   }
 }

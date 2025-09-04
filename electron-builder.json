@@ -1,0 +1,23 @@
+{
+  "appId": "com.sahil.ai-therapist",
+  "productName": "AI Therapist",
+  "files": [
+    "dist-electron/**/*",
+    "dist-react/**/*",
+    "package.json"
+  ],
+  "directories": {
+    "output": "dist"
+  },
+  "icon": "./logo.png",
+  "win": {
+    "target": ["portable", "msi"]
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage",
+    "category": "Utility"
+  }
+}
