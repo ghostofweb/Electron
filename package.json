@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "AI Therapist desktop app built with Electron + React + TypeScript",
-  "author": "Sahiljeet Singh Kalsi",
+  "description": "Template desktop app built with Electron + React + TypeScript",
+  "author": "GhostofWeb",
   "main": "dist-electron/main.js",
   "scripts": {
     "dev":"npm-run-all --parallel dev:react dev:electron",
